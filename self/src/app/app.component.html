@@ -1,0 +1,17 @@
+<mat-toolbar style="background-color: red;color: white;">
+  <span>Tax Payer Registration Form</span>
+</mat-toolbar>
+<div class="container mt-4">
+  <app-company-profile></app-company-profile>
+  <app-manufacturer-table></app-manufacturer-table>
+  <div class="row">
+    <div class="col mb-5" style="text-align: right;">
+        <div class="example-button-row">
+          <button mat-raised-button color="primary" style="background-color: red;">Send Request</button>
+          <button mat-raised-button color="primary" style="background-color: red;margin-left: 1rem;margin-right: 2rem;" (click)="saveDataInCSV('simpleData', arrayWithSimpleData)">Reset Form</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+

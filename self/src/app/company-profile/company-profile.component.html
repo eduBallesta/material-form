@@ -1,0 +1,143 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <mat-card class="card-center-table mt-4 card-layout-table">
+      <mat-card-header class="card-title">
+        <mat-card-title>Company Profile</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+      <form [formGroup]="companyFormGroup" class="example-form">
+        
+          <div class="row mt-3">
+            <div class="col">
+              <mat-form-field class="example-form-field input-responsive" appearance="outline">
+                <input matInput type="text" [disabled]="showForm" placeholder="PIN number input" formControlName="pin">
+                <mat-error *ngIf="checkError('pin', 'required')">Pin is required</mat-error>
+                <mat-error *ngIf="checkError('pin', 'minlength')">Pin should be more than 5 characters</mat-error>
+                <mat-error *ngIf="checkError('pin', 'maxlength')">Pin should be less than 12 characters</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col">
+              <mat-radio-group class="example-radio-group" [disabled]="showForm" formControlName="userType">
+                  <mat-radio-button class="example-radio-button" checked value="1">Manufacturer</mat-radio-button>
+                  <mat-radio-button class="example-radio-button"         value="2">Tax Payer</mat-radio-button>
+                  <mat-radio-button class="example-radio-button"         value="3">Both</mat-radio-button>
+              </mat-radio-group>
+             </div>
+          </div>
+
+          <div class="row" *ngIf="!showForm">
+            <div class="col" style="text-align: right;">
+              <div class="example-button-row">
+                <button mat-raised-button color="primary" [disabled]="false" style="background-color: red;" (click)="showTaxPayer()">Confirm</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mt-4" *ngIf="showForm">
+            <div class="col">
+                <mat-form-field class="example-form-field input-responsive" appearance="outline">
+                    <input matInput type="text" placeholder="Company Name" formControlName="companyName">
+                </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="showForm">
+            <div class="col">
+                <mat-form-field class="example-form-field input-responsive" appearance="outline">
+                    <mat-select name="taxStationsString" [(value)]="taxStations" placeholder="Tax Stations" formControlName="taxStation">
+                      <mat-option [value]="'GB'">Great Britain</mat-option>
+                      <mat-option [value]="'US'">United States</mat-option>
+                      <mat-option [value]="'CA'">Canada</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="showForm">
+            <div class="col">
+                <mat-form-field class="example-form-field input-responsive" appearance="outline">
+                <input matInput type="text" placeholder="Postal Address" formControlName="postalCode">
+                </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="showForm">
+            <div class="col">
+                <mat-form-field class="example-form-field input-responsive" appearance="outline">
+                <input matInput type="text" placeholder="City/Town" formControlName="city">
+                </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="showForm">
+            <div class="col">
+                <mat-form-field class="example-form-field input-responsive" appearance="outline">
+                <input matInput type="text" placeholder="Physical Address" formControlName="physicalAddress">
+                </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="showForm">
+            <div class="col">
+                <mat-form-field class="example-form-field input-responsive" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" placeholder="Email Address" formControlName="email">
+                </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="showForm">
+            <div class="col">
+                <mat-form-field class="example-form-field input-responsive" appearance="outline">
+                    <input matInput type="text" placeholder="Telephone/Mobile" formControlName="phoneNumber">
+                 </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="showForm">
+            <mat-label class="label-mat-font">Product Type(s)</mat-label>
+            <div class="col-6 mt-4">
+                <mat-checkbox ngInit="checked=true">Beer</mat-checkbox>
+                <br>
+                <mat-checkbox ngInit="checked=true">Cosmetic</mat-checkbox>
+                <br>
+                <mat-checkbox ngInit="checked=true">Ready to Drink</mat-checkbox>
+                <br>
+                <mat-checkbox ngInit="checked=true">Spirits</mat-checkbox>
+                <br>
+                <mat-checkbox ngInit="checked=true">Wine</mat-checkbox>
+                <br>
+            </div>
+            <div class="col-6 mt-4">
+                <mat-checkbox ngInit="checked=true">Bottle Water</mat-checkbox>
+                <br>
+                <mat-checkbox ngInit="checked=true">Other Tobacco Products</mat-checkbox>
+                <br>
+                <mat-checkbox ngInit="checked=true">Soft Drinks And Juice</mat-checkbox>
+                <br>
+                <mat-checkbox ngInit="checked=true">Tobacco</mat-checkbox>
+                <br>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="showForm">
+            <div class="col" style="text-align: right;">
+                <div class="example-button-row">
+                    <button mat-raised-button color="primary">Confirm</button>
+                </div>
+            </div>
+          </div>
+
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div> 
+
+  
+  
+  

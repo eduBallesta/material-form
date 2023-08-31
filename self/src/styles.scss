@@ -1,0 +1,78 @@
+@use '@angular/material' as mat;
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'material-icons/iconfont/material-icons.css';
+
+html, body { height: 100%; font-size: smaller!important; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@include mat.core();
+
+// Set the default typography
+@include mat.all-component-typographies(
+  mat.define-typography-config($font-family: 'Times')
+);
+
+// Define the default theme
+$default-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: mat.define-palette(mat.$red-palette),
+      accent: mat.define-palette(mat.$red-palette),
+    ),
+    typography:
+      mat.define-typography-config(
+        $font-family: 'sans-serif',
+      ),
+    density: -2
+  )
+);
+
+
+@include mat.all-component-themes($default-theme);
+
+.example-form-field {
+    display: block;
+}
+
+.input-responsive {
+    width: 99%!important;
+    min-width: max-content!important;
+}
+
+.card-center {
+    width: 50%;
+}
+
+.card-center-table {
+  width: 95%;
+}
+
+.card-layout-table {
+    width: 95%!important;
+    padding-left: 0rem!important;
+    padding-right: 0rem!important;
+    border-radius:  0.8rem!important;
+}
+
+.card-layout {
+  width: 50%!important;
+  padding-left: 0rem!important;
+  padding-right: 0rem!important;
+  border-radius:  0.8rem!important;
+}
+
+.card-title {
+    background: red;
+    color: white!important;
+    margin-left: 0px!important;
+    padding-top: 0rem!important;
+    border-top-left-radius: 0.8rem!important;
+    border-top-right-radius: 0.8rem!important;
+}
+
+.label-mat-font {
+  font-family: sans-serif!important;
+  font-size: large!important;
+  font-weight: bold!important;
+}
